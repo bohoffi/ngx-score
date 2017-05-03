@@ -1,0 +1,26 @@
+{
+  "generator-ngx-library": {
+    "authorName": "bohoffi",
+    "authorEmail": "bo.hoffi@gmail.com",
+    "githubUsername": "bohoffi",
+    "projectName": "ngx-score",
+    "projectVersion": "0.1.0",
+    "projectDescription": "Utility to view (and edit) music scores written in musicXML, abc notation or Vex-style provided as an Angular module.",
+    "projectKeywords": [
+      "angular",
+      "music",
+      "score",
+      "musicxml",
+      "abc",
+      "vex",
+      "render",
+      "edit"
+    ],
+    "moduleName": "ngx-score-module",
+    "ngVersion": "4.0.0",
+    "ngModules": [
+      "core",
+      "common"
+    ]
+  }
+}

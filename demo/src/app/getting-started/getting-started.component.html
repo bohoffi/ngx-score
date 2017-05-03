@@ -1,0 +1,27 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>Getting Started</h1>
+  </div>
+</div>
+
+<section class="getting-started">
+  <div class="container">
+    <h2>Dependencies</h2>
+    <ul>
+      <ng-container *ngFor="let dep of deps">
+        <li>
+          <a [href]="dep.url">{{dep.name}}</a> (<em>requires</em> {{dep.name}}@{{dep.version}} or higher)
+        </li>
+      </ng-container>
+    </ul>
+    <h2>Installation</h2>
+    <ul>
+      <ng-container *ngFor="let step of installSteps">
+        <li>
+          <h6>{{step.label}}</h6>
+          <p>{{step.content}}</p>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</section>
