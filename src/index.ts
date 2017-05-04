@@ -1,1 +1,1 @@
-export * from './ngx-score-module.module';
+export * from './ngx-score.module';

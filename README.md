@@ -26,37 +26,37 @@ npm install --save ngx-score
 In your systemjs config file, `map` needs to tell the System loader where to look for `ngx-score`:
 ```js
 map: {
-  'ngx-score': 'node_modules/ngx-score/bundles/ngx-score.umd.js',
+  'ngx-score': 'node_modules/ngx-score/bundles/ngx-score.umd.js'
 }
 ```
 ---
 
 Once installed you need to import the main module:
 ```js
-import {NgxScoreModuleModule} from 'ngx-score';
+import {NgxScoreModule} from 'ngx-score';
 ```
 The only remaining part is to list the imported module in your application module. The exact method will be slightly
-different for the root (top-level) module for which you should end up with the code similar to (notice `NgxScoreModuleModule.forRoot()`):
+different for the root (top-level) module for which you should end up with the code similar to (notice `NgxScoreModule.forRoot()`):
 ```js
-import {NgxScoreModuleModule} from 'ngx-score';
+import {NgxScoreModule} from 'ngx-score';
 
 @NgModule({
-  declarations: [AppComponent, ...],
-  imports: [NgxScoreModuleModule.forRoot(), ...],  
+  declarations: [AppComponent],
+  imports: [NgxScoreModule.forRoot()],  
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
 ```
 
-Other modules in your application can simply import `NgxScoreModuleModule`:
+Other modules in your application can simply import `NgxScoreModule`:
 
 ```js
-import {NgxScoreModuleModule} from 'ngx-score';
+import {NgxScoreModule} from 'ngx-score';
 
 @NgModule({
-  declarations: [OtherComponent, ...],
-  imports: [NgxScoreModuleModule, ...], 
+  declarations: [OtherComponent],
+  imports: [NgxScoreModule], 
 })
 export class OtherModule {
 }

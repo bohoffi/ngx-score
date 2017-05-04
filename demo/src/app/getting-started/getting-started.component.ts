@@ -28,7 +28,7 @@ export class GettingStartedComponent implements OnInit {
     },
     {
       label: 'Import module',
-      content: 'imports: [NgxScoreModuleModule.forRoot(), ...]'
+      content: 'imports: [NgxScoreModule.forRoot(), ...]'
     }
   ];
 
