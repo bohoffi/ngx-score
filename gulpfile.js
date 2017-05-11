@@ -227,7 +227,7 @@ gulp.task('package', (cb) => {
 // Bundles the library as UMD bundle using RollupJS
 gulp.task('bundle', (cb) => {
   const globals = {
-    // Angular dependencies 
+    // Angular dependencies
 	  '@angular/core': 'ng.core',
 	  '@angular/common': 'ng.common',
 

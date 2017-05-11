@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Title}     from '@angular/platform-browser';
+import {Title} from '@angular/platform-browser';
 
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   selector: 'app-getting-started',
@@ -14,6 +15,11 @@ export class GettingStartedComponent implements OnInit {
       name: 'Angular',
       version: '4.0.0',
       url: 'https://angular.io'
+    },
+    {
+      name: 'vexflow',
+      version: '1.2.83',
+      url: 'http://www.vexflow.com/'
     }
   ];
 
@@ -38,5 +44,4 @@ export class GettingStartedComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle('Getting Started | ngx-score');
   }
-
 }

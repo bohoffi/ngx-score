@@ -1,7 +1,7 @@
 {
   "name": "ngx-score",
   "description": "Utility to view (and edit) music scores written in musicXML, abc notation or Vex-style provided as an Angular module.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "filename": "./src/ngx-score.js",
   "homepage": "http://github.com/bohoffi/ngx-score",
   "author": {
@@ -39,6 +39,7 @@
   "dependencies": {
     "@angular/common": "^4.0.0",
     "@angular/core": "^4.0.0",
+    "@types/vexflow": "^1.2.28",
     "vexflow": "^1.2.83"
   },
   "devDependencies": {

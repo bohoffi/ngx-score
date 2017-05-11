@@ -1,11 +1,8 @@
-import {NgModule, ModuleWithProviders} from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ScoreDetailsComponent} from './components/score-details/score-details.component';
 
 // add your angular components here (directives, components, filters, pipes ...)
-export const MY_NG_COMPONENTS = [
-  ScoreDetailsComponent
-];
+export const MY_NG_COMPONENTS = [];
 
 // add your services here
 const MY_SERVICES = [];
@@ -25,3 +22,5 @@ export class NgxScoreModule {
     };
   }
 }
+
+export {createTokenizer, createRenderer, ITokenizer, IRenderer} from './processing'
