@@ -1,8 +1,8 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-
-import {createRenderer, createTokenizer, IRenderer, ITokenizer} from 'ngx-score';
 import {FormBuilder, FormGroup} from '@angular/forms';
+
+import {createRenderer, createTokenizer, IRenderer, ITokenizer, MusicXml} from 'ngx-score';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   inner: HTMLElement;
   canvas: HTMLCanvasElement;
 
-  private tokenizer: ITokenizer;
+  private tokenizer: ITokenizer<Array<MusicXml.Measure>>;
   private _renderer: IRenderer;
 
   constructor(private titleService: Title,

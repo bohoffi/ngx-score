@@ -4,8 +4,7 @@
 import * as Vex from 'vexflow';
 
 import {BaseRenderer} from './renderer-base';
-import {MusicXml} from '../../common/model/musicxml/music-xml';
-import {Key} from '../../common/model/musicxml/key';
+import {MusicXml} from '../../common/model';
 
 // FIXME cloned from vexflow sources because this is not accessable using @types/vexflow
 const keySpecs: any = {
@@ -89,7 +88,7 @@ export class MusicXmlRenderer extends BaseRenderer {
     return this.systemSpace * this.layout.linesPerPage;
   }
 
-  calculateLayout(musicXml: MusicXml) {
+  calculateLayout(musicXml: MusicXml.MusicXml) {
     const width = this.isSvg ? this.container.getAttribute('width') : this.container.width;
     // const height = this.isSvg ? this.canvas.getAttribute('height') : this.canvas.height;
     const mps = Math.floor(width / this.staveWidth); // measures per stave
@@ -136,7 +135,7 @@ export class MusicXmlRenderer extends BaseRenderer {
     };
   }
 
-  protected renderInternal(data: MusicXml): void {
+  protected renderInternal(data: MusicXml.MusicXml): void {
     // this.renderer.resize(500, 500);
     // this.context.setFont('Arial', 10, 100).setBackgroundFillStyle('#eed');
     //
@@ -309,7 +308,7 @@ export class MusicXmlRenderer extends BaseRenderer {
     this.beamList.forEach(beam => beam.setContext(this.context).draw());
   }
 
-  private getVexKey(key: Key): any {
+  private getVexKey(key: MusicXml.Key): any {
     let filteredKeys = this.keySpec.filter(k => k.num === Math.abs(key.fifths));
     const mode = key.mode === 'major' ? 0 : 1;
     if (key.fifths < 0) {

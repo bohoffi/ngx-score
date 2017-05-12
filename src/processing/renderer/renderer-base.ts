@@ -7,7 +7,7 @@ import IRenderContext = Vex.IRenderContext;
 
 export abstract class BaseRenderer implements IRenderer {
 
-  private _container: HTMLCanvasElement | any;
+  private _container: HTMLCanvasElement | HTMLObjectElement;
   private _isSvgContainer: boolean;
 
   private _vexRenderer: Vex.Flow.Renderer;

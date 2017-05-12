@@ -77,26 +77,25 @@ const tokenizer: ITokenizer = createTokenizer('TAB');
 #### Methods
 
 - `parse(input: any): any`: Parses the given input using the rules defined by the tokenizer type
-  - currently the return value is for the renderer only (will change in future) 
 - `getType(): TokenizerType`: returns the type of the tokenizer
 
 ##### Example
 
 ```ts
-import {createTokenizer, ITokenizer} from 'ngx-score';
+import {createTokenizer, ITokenizer, Common} from 'ngx-score';
 
-const tokenizer: ITokenizer = createTokenizer('TAB');
-const result = tokenizer.parse('B:3/4 6>0 5>2 4>2|B:3/4 3>0 2>0 1>0');
+const tokenizer: ITokenizer<Array<Common.Measure>> = createTokenizer('TAB');
+const result: Array<Common.Measure> = tokenizer.parse('B:3/4 6>0 5>2 4>2|B:3/4 3>0 2>0 1>0');
 ```
 
 ### Renderer
 
 Initializing the renderer is damn easy too
 ```ts
-import {createTokenizer, ITokenizer, createRenderer, IRenderer} from 'ngx-score';
+import {createTokenizer, ITokenizer, createRenderer, IRenderer, Common} from 'ngx-score';
 
 // creating the tokenizer
-const tokenizer: ITokenizer = createTokenizer('TAB');
+const tokenizer: ITokenizer<Array<Common.Measure>> = createTokenizer('TAB');
 
 // creating the rendering container
 const container = document.getElementById('main');
@@ -113,10 +112,10 @@ const renderer: IRenderer = createRendere(tokenizer, canvas);
 ##### Example
 
 ```ts
-import {createTokenizer, ITokenizer, createRenderer, IRenderer} from 'ngx-score';
+import {createTokenizer, ITokenizer, createRenderer, IRenderer, Common} from 'ngx-score';
 
 // creating the tokenizer
-const tokenizer: ITokenizer = createTokenizer('TAB');
+const tokenizer: ITokenizer<Array<Common.Measure>> = createTokenizer('TAB');
 
 // creating the rendering container
 const container = document.getElementById('main');
@@ -127,7 +126,7 @@ container.appendChild(canvas);
 const renderer: IRenderer = createRendere(tokenizer, canvas);
 
 // parsing
-const result = tokenizer.parse('B:3/4 6>0 5>2 4>2|B:3/4 3>0 2>0 1>0');
+const result: Array<Common.Measure> = tokenizer.parse('B:3/4 6>0 5>2 4>2|B:3/4 3>0 2>0 1>0');
 
 // rendering
 renderer.render(result);

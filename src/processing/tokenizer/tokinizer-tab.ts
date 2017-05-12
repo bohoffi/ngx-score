@@ -4,15 +4,9 @@
 import {TokenizerType} from './types';
 import {ITokenizer} from './interfaces';
 import {BaseTokenizer} from './tokenizer-base';
-import {Measure} from '../../common/model/common/measure';
-import {Beat} from '../../common/model/common/beat';
-import {Chord} from '../../common/model/common/chord';
-import {Note} from '../../common/model/common/note';
-import {Rest} from '../../common/model/common/rest';
+import {Common} from '../../common/model';
 
-export class TabTokenizer extends BaseTokenizer implements ITokenizer {
-
-  // result: Array<Measure> = [];
+export class TabTokenizer extends BaseTokenizer implements ITokenizer<Array<Common.Measure>> {
 
   // (?:\:+)?(\|)(?:\:+)? => |, |:, |:
   private _measureSplit: RegExp = /[\|$]+/g;
@@ -43,7 +37,7 @@ export class TabTokenizer extends BaseTokenizer implements ITokenizer {
   //   this.result = input.split(this._measureSplit).filter(m => !!m).map(m => this._measure(m));
   //   return this;
   // }
-  parse(input: any): Array<Measure> {
+  parse(input: any): Array<Common.Measure> {
     return input.split(this._measureSplit).filter(m => !!m).map(m => this._measure(m));
   }
 
@@ -51,15 +45,15 @@ export class TabTokenizer extends BaseTokenizer implements ITokenizer {
     return 'TAB';
   }
 
-  private _measure(input: string): Measure {
+  private _measure(input: string): Common.Measure {
 
-    const measure = new Measure(input);
+    const measure = new Common.Measure(input);
 
     input.split(this._measureElement)
       .filter(e => !!e && new RegExp(this._measureElement).test(e))
       .forEach(elem => {
         if (this._isBeat(elem.trim())) {
-          const beat = new Beat(elem.trim());
+          const beat = new Common.Beat(elem.trim());
           const beatParts = beat.raw.match(new RegExp(/\d+/g));
           beat.count = !!beatParts ? +beatParts[0] : this._defaultQuantifier;
           beat.quantifier = !!beatParts ? +beatParts[1] : this._defaultQuantifier;
@@ -67,14 +61,14 @@ export class TabTokenizer extends BaseTokenizer implements ITokenizer {
 
         } else if (this._isChord(elem.trim())) {
 
-          const chord = new Chord(elem.trim());
+          const chord = new Common.Chord(elem.trim());
           chord.value = chord.raw.replace(this._defaultQuantifierRegExp, '');
           chord.quantifier = this._getQuantifier(chord.raw, this._defaultQuantifierRegExp);
 
           chord.notes = chord.raw.replace(new RegExp(/((?:\d+)?\[)|(\])/g), '')
           // .split(this._note).filter(e => !!e && e !== '[' && e !== ']').map(n => {
             .split(this._fullNote).filter(e => !!e && e !== '[' && e !== ']').map(n => {
-              const note = new Note(n.trim());
+              const note = new Common.Note(n.trim());
               note.value = note.raw.replace(this._noteQuantifier, '');
               note.quantifier = this._getQuantifier(note.raw, this._noteQuantifier);
               return note;
@@ -84,20 +78,20 @@ export class TabTokenizer extends BaseTokenizer implements ITokenizer {
 
         } else if (this._isNote(elem.trim())) {
 
-          const note = new Note(elem.trim());
+          const note = new Common.Note(elem.trim());
           note.value = note.raw.replace(this._noteQuantifier, '');
           note.quantifier = this._getQuantifier(note.raw, this._noteQuantifier);
           measure.add(note);
 
         } else if (this._isBreak(elem.trim())) {
-          const br = new Rest(elem.trim());
+          const br = new Common.Rest(elem.trim());
           br.quantifier = this._getQuantifier(br.raw, this._defaultQuantifierRegExp);
           measure.add(br);
         }
       });
 
     if (!measure.beat) {
-      const beat = new Beat('B:4/4');
+      const beat = new Common.Beat('B:4/4');
       beat.count = 4;
       beat.quantifier = this._defaultQuantifier;
       measure.beat = beat;

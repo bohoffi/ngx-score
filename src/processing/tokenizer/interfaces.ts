@@ -4,9 +4,9 @@
 
 import {TokenizerType} from './types';
 
-export interface ITokenizer {
+export interface ITokenizer<T> {
 
-  parse(input: any): any;
+  parse(input: any): T;
 
   getType(): TokenizerType;
 }

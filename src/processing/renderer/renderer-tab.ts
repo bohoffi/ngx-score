@@ -4,12 +4,12 @@
 import * as Vex from 'vexflow';
 
 import {BaseRenderer} from './renderer-base';
-import {Measure} from '../../common/model/common/measure';
+import {Common} from '../../common/model';
 import {getMeasureBar} from '../../utils/vex-utils';
 
 export class TabRenderer extends BaseRenderer {
 
-  protected renderInternal(data: Array<Measure>): void {
+  protected renderInternal(data: Array<Common.Measure>): void {
     this.renderer.resize(500, 500);
     this.context.setFont('Arial', 10, 100).setBackgroundFillStyle('#eed');
 

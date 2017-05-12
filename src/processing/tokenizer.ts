@@ -6,7 +6,7 @@ import {TokenizerType} from './tokenizer/types';
 import {ITokenizer} from './tokenizer/interfaces';
 import {TabTokenizer} from './tokenizer/tokinizer-tab';
 
-export const createTokenizer = (type: TokenizerType): ITokenizer => {
+export const createTokenizer = (type: TokenizerType): ITokenizer<any> => {
   switch (type) {
     case 'TAB':
       return new TabTokenizer();

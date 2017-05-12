@@ -3,11 +3,11 @@
  */
 import {ITokenizer} from './interfaces';
 import {TokenizerType} from './types';
-import {MusicXml} from '../../common/model/musicxml/music-xml';
+import {MusicXml} from '../../common/model';
 
-export class MusicXmlTokenizer implements ITokenizer {
+export class MusicXmlTokenizer implements ITokenizer<Promise<MusicXml.MusicXml>> {
 
-  parse(input: any): Promise<MusicXml> {
+  parse(input: any): Promise<MusicXml.MusicXml> {
 
     if (typeof input === 'string') {
 
@@ -23,7 +23,7 @@ export class MusicXmlTokenizer implements ITokenizer {
 
       // file content => load it
       if (input.startsWith('<?xml')) {
-        return Promise.resolve(new MusicXml(input));
+        return Promise.resolve(new MusicXml.MusicXml(input));
       }
     }
   }

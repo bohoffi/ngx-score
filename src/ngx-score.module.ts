@@ -23,4 +23,5 @@ export class NgxScoreModule {
   }
 }
 
-export {createTokenizer, createRenderer, ITokenizer, TokenizerType, IRenderer} from './processing'
+export {createTokenizer, createRenderer, ITokenizer, TokenizerType, IRenderer} from './processing';
+export {Common, MusicXml} from './common/model';

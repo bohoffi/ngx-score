@@ -6,7 +6,7 @@ import {IRenderer} from './renderer/interfaces';
 import {TabRenderer} from './renderer/renderer-tab';
 import {MusicXmlRenderer} from './renderer/renderer-musicxml';
 
-export const createRenderer = (tokenizer: ITokenizer, container: HTMLCanvasElement | any): IRenderer => {
+export const createRenderer = (tokenizer: ITokenizer<any>, container: HTMLCanvasElement | any): IRenderer => {
   switch (tokenizer.getType()) {
     case 'TAB':
       return new TabRenderer(container);
