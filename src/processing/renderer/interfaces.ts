@@ -3,4 +3,5 @@
  */
 export interface IRenderer {
   render(data: any): void;
+  clear(): void;
 }
