@@ -3,5 +3,5 @@
  */
 export {createTokenizer} from './tokenizer';
 export {createRenderer} from './renderer';
-export {ITokenizer} from './tokenizer/';
+export {ITokenizer, TokenizerType} from './tokenizer/';
 export {IRenderer} from './renderer/';

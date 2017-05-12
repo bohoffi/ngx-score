@@ -3,3 +3,4 @@
  */
 
 export {ITokenizer} from './interfaces';
+export {TokenizerType} from './types';

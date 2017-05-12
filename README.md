@@ -11,6 +11,7 @@ View all the directives in action at https://bohoffi.github.io/ngx-score
 
 ## Dependencies
 * [Angular](https://angular.io) (*requires* Angular 4 or higher, tested with 4.1.0)
+* [vexflow](http://www.vexflow.com/) (*requires* Angular 1.2.83 or higher, tested with 1.2.83)
 
 ## Installation
 Install above dependencies via *npm*. 
@@ -64,7 +65,73 @@ export class OtherModule {
 
 ## Usage
 
+### Tokenizer
 
+Initializing a tokenizer is as easy as initializing a string variable:
+```ts
+import {createTokenizer, ITokenizer} from 'ngx-score';
+
+const tokenizer: ITokenizer = createTokenizer('TAB');
+```
+
+#### Methods
+
+- `parse(input: any): any`: Parses the given input using the rules defined by the tokenizer type
+  - currently the return value is for the renderer only (will change in future) 
+- `getType(): TokenizerType`: returns the type of the tokenizer
+
+##### Example
+
+```ts
+import {createTokenizer, ITokenizer} from 'ngx-score';
+
+const tokenizer: ITokenizer = createTokenizer('TAB');
+const result = tokenizer.parse('B:3/4 6>0 5>2 4>2|B:3/4 3>0 2>0 1>0');
+```
+
+### Renderer
+
+Initializing the renderer is damn easy too
+```ts
+import {createTokenizer, ITokenizer, createRenderer, IRenderer} from 'ngx-score';
+
+// creating the tokenizer
+const tokenizer: ITokenizer = createTokenizer('TAB');
+
+// creating the rendering container
+const container = document.getElementById('main');
+const canvas = document.createElement('canvas');
+container.appendChild(canvas);
+
+const renderer: IRenderer = createRendere(tokenizer, canvas);
+```
+
+#### Methods
+
+- `render(data: any): void`: renders the given data in the given container
+
+##### Example
+
+```ts
+import {createTokenizer, ITokenizer, createRenderer, IRenderer} from 'ngx-score';
+
+// creating the tokenizer
+const tokenizer: ITokenizer = createTokenizer('TAB');
+
+// creating the rendering container
+const container = document.getElementById('main');
+const canvas = document.createElement('canvas');
+container.appendChild(canvas);
+
+// creating the renderer
+const renderer: IRenderer = createRendere(tokenizer, canvas);
+
+// parsing
+const result = tokenizer.parse('B:3/4 6>0 5>2 4>2|B:3/4 3>0 2>0 1>0');
+
+// rendering
+renderer.render(result);
+```
 
 ## License
 
