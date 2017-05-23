@@ -1,5 +1,7 @@
 # ngx-score - Utility to view (and edit) music scores written in musicXML, abc notation or Vex-style provided as an Angular module.
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/bohoffi/ngx-score.svg)](https://greenkeeper.io/)
+
 [![npm version](https://badge.fury.io/js/ngx-score.svg)](https://badge.fury.io/js/ngx-score)
 [![Build Status](https://travis-ci.org/bohoffi/ngx-score.svg?branch=master)](https://travis-ci.org/bohoffi/ngx-score)
 [![Coverage Status](https://coveralls.io/repos/github/bohoffi/ngx-score/badge.svg?branch=master)](https://coveralls.io/github/bohoffi/ngx-score?branch=master)
