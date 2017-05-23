@@ -113,7 +113,7 @@ gulp.task('clean', ['clean:dist', 'clean:coverage']);
 gulp.task('lint', (cb) => {
   pump([
     gulp.src(config.allTs),
-    gulpTslint({ formatter: "verbose" }),
+    gulpTslint({ formatter: "verbose", configuration: 'tslint.json' }),
     gulpTslint.report()
   ], cb);
 });
