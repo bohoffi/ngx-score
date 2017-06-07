@@ -1,3 +1,7 @@
+# Development currently stopped
+ 
+ 
+ 
 # ngx-score - Utility to view (and edit) music scores written in musicXML, abc notation or Vex-style provided as an Angular module.
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/bohoffi/ngx-score.svg)](https://greenkeeper.io/)
