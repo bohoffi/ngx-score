@@ -21,7 +21,7 @@ before_install:
   - yarn config set spin false
   - yarn config set progress false
 
-install: npm5 install
+install: npm install
 
 before_script:
   - export DISPLAY=:99.0
