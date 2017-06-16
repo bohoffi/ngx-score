@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@angular/common": "^4.0.0",
-    "@angular/core": "^4.0.0",
+    "@angular/core": "^4.2.3",
     "vexflow": "^1.2.83"
   },
   "devDependencies": {
