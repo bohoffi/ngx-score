@@ -42,7 +42,7 @@
     "vexflow": "^1.2.83"
   },
   "devDependencies": {
-    "@angular/animations": "^4.1.0",
+    "@angular/animations": "^4.2.3",
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
     "@angular/platform-browser": "^4.0.0",
