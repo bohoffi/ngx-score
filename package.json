@@ -46,7 +46,7 @@
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
     "@angular/platform-browser": "^4.0.0",
-    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.2.3",
     "@angular/platform-server": "^4.0.0",
     "@types/jasmine": "2.5.50",
     "@types/node": "^7.0.15",
